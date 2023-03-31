@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "217999636498",
+    "project_id": "naujas-d16bd",
+    "storage_bucket": "naujas-d16bd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:217999636498:android:e92e558b328f29fa49c0cb",
+        "android_client_info": {
+          "package_name": "com.example.naujas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "217999636498-jr1k9tkju8d80lno0ocptt5vave8rdku.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIJKVXMF1U9M_8EGEq-61ljsN2a5MUboQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "217999636498-jr1k9tkju8d80lno0ocptt5vave8rdku.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

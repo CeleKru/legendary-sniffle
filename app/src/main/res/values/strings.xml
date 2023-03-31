@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Naujas</string>
+    <string name="template1">Hello [name], thank you for your [order]!</string>
+    <string name="template2">
+        Dear [Recipient’s Name],
+I hope this email finds you well. I am reaching out to you regarding [briefly state the purpose of your email here].
+[Provide more details about the purpose of your email here. You can use bullet points or paragraphs to make it easier to read.]
+[If necessary, include any attachments or links to relevant information.]
+[Close your email with a polite statement, such as:]
+Please let me know if you have any questions or concerns.
+Thank you for your time.
+Best regards,
+[Your Name]</string>
+    <string name="template3">333333333</string>
+    <string name="template4">44444444444444444</string>
+    <string name="template5">55555555555555555</string>
+    <string name="template6">66666666666666!</string>
+    <string name="template7">Septintaa!</string>
+    <string-array name="email_templates">
+        <item>Template 1</item>
+        <item>Template 2</item>
+        <item>Template 3</item>
+        <item>Template 4</item>
+        <item>Template 5</item>
+        <item>Template 6</item>
+        <item>Template 7</item>
+    </string-array>
+</resources>
