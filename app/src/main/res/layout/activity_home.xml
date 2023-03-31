@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,7 +9,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/purple">
+        android:background="@drawable/cloud">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -28,7 +30,8 @@
                     android:layout_margin="10dp"
                     android:clickable="true"
                     android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground">
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="30dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -41,14 +44,18 @@
                             android:layout_width="64dp"
                             android:layout_height="64dp"
                             android:background="@drawable/circle_darkblue"
-                            android:padding="10dp"></Button>
+                            android:padding="10dp">
+
+                        </Button>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:text="Compose"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:textSize="12sp"
+                            android:textColor="@color/white"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -59,7 +66,8 @@
                     android:layout_margin="10dp"
                     android:clickable="true"
                     android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground">
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="30dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -71,18 +79,19 @@
                             android:id="@+id/template_list_button"
                             android:layout_width="64dp"
                             android:layout_height="64dp"
-                            android:background="@drawable/circle_darkblue"
+                            android:background="@drawable/circle_pink"
                             android:padding="10dp"></Button>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:text="Modify"
-                            android:textStyle="bold" />
+                            android:text="Data List"
+                            android:textStyle="bold"
+                            android:textSize="12sp"
+                            android:textColor="@color/white"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
-
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -92,13 +101,14 @@
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/Add_card"
+                    android:id="@+id/Add_card_2"
                     android:layout_width="160dp"
                     android:layout_height="150dp"
                     android:layout_margin="10dp"
                     android:clickable="true"
                     android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground">
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="30dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -111,19 +121,53 @@
                             android:layout_width="64dp"
                             android:layout_height="64dp"
                             android:background="@drawable/circle_pink"
-                            android:drawableStart="@drawable/baseline_view_list_24"
                             android:padding="20dp"></Button>
-
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:text="Create tamplate "
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:textSize="12sp"
+                            android:textColor="@color/white"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/Modify_card_2"
+                    android:layout_width="160dp"
+                    android:layout_height="150dp"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    app:cardCornerRadius="30dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/add_client_button"
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:background="@drawable/circle_darkblue"
+                            android:padding="10dp"></Button>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Add Client"
+                            android:textStyle="bold"
+                            android:textSize="12sp"
+                            android:textColor="@color/white"/>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
