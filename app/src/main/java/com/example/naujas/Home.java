@@ -16,6 +16,8 @@ public class Home extends AppCompatActivity {
     private Button createEmailButton;
     private Button createTemplateButton;
     private Button templateListButton;
+    private Button addClientButton;
+    private Button clientListButton;
     private FirebaseAuth FirebaseAuth;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -53,6 +55,8 @@ public class Home extends AppCompatActivity {
         //moreButton = findViewById(R.id.more_button);
         createTemplateButton = findViewById(R.id.create_template_button);
         templateListButton = findViewById(R.id.template_list_button);
+        addClientButton = findViewById(R.id.add_client_button);
+        clientListButton = findViewById(R.id.client_list_button);
 
         PopupMenu popupMenu = new PopupMenu(this, moreButton);
         popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
@@ -88,6 +92,20 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Home.this, TemplateList.class);
+                startActivity(intent);
+            }
+        });
+        addClientButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Home.this, AddClient.class);
+                startActivity(intent);
+            }
+        });
+        clientListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Home.this, ClientList.class);
                 startActivity(intent);
             }
         });

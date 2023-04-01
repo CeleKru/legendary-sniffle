@@ -42,16 +42,16 @@ public class Email extends AppCompatActivity {
                     case "Template 2":
                         message = getString(R.string.template2);
                         break;
-                    case "Template 3":
+                    case "Welcome email":
                         message = getString(R.string.template3);
                         break;
-                    case "Template 4":
+                    case "Confirmation email":
                         message = getString(R.string.template4);
                         break;
-                    case "Template 5":
+                    case "Newsletter email":
                         message = getString(R.string.template5);
                         break;
-                    case "Template 6":
+                    case "Feedback request email":
                         message = getString(R.string.template6);
                         break;
                     case "Template 7":

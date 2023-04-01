@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/cloud">
 
     <TextView
         android:id="@+id/titleTextView"
@@ -9,38 +12,71 @@
         android:layout_height="wrap_content"
         android:text="Create New Email Template"
         android:textAlignment="center"
+        android:textAllCaps="true"
         android:textSize="24sp"
         android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/subjectEditText"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/subject_cardview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/titleTextView"
-        android:hint="Subject"
-        android:inputType="text"
-        android:maxLines="1"
-        android:minLines="1"
-        android:padding="16dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="true">
 
-    <EditText
-        android:id="@+id/bodyEditText"
+        <EditText
+            android:id="@+id/subjectEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Subject"
+            android:textSize="10sp"
+            android:inputType="text"
+            android:maxLines="1"
+            android:minLines="1"
+            android:padding="16dp" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/body_cardview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/subjectEditText"
-        android:hint="Body"
-        android:inputType="textMultiLine"
-        android:minLines="5"
-        android:padding="16dp" />
+        android:layout_below="@id/subject_cardview"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="true">
+
+        <EditText
+            android:id="@+id/bodyEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Body"
+            android:textSize="10sp"
+            android:inputType="textMultiLine"
+            android:minLines="5"
+            android:padding="16dp" />
+
+    </androidx.cardview.widget.CardView>
 
     <Button
         android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/bodyEditText"
+        android:layout_below="@id/body_cardview"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="Save" />
+        android:text="Save"
+        android:textSize="15sp"/>
 
 </RelativeLayout>
+

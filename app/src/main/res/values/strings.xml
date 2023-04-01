@@ -11,18 +11,82 @@ Please let me know if you have any questions or concerns.
 Thank you for your time.
 Best regards,
 [Your Name]</string>
-    <string name="template3">333333333</string>
-    <string name="template4">44444444444444444</string>
-    <string name="template5">55555555555555555</string>
-    <string name="template6">66666666666666!</string>
+    <string name="template3">Subject: Welcome to [Brand Name]!
+
+Dear [First Name],
+
+Welcome to [Brand Name]! We are thrilled to have you join our community of [insert your brands mission, product or service].
+
+At [Brand Name], we strive to [insert your brands values or unique selling points]. Our goal is to make your experience with us as enjoyable and easy as possible.
+
+To get started, here are a few things you can do:
+
+Explore our website/app and get to know our products/services.
+Follow us on social media for the latest news, updates, and promotions.
+Sign up for our newsletter to stay informed about our brand and special offers.
+Contact us if you have any questions, feedback, or concerns.
+Thank you for choosing [Brand Name]. We look forward to getting to know you and providing you with the best possible experience.
+
+Best regards,
+[Your Name]
+[Brand Name] Team</string>
+    <string name="template4">Subject: [Action] Confirmation
+
+Dear [First Name],
+
+Thank you for [insert the action taken, such as signing up, subscribing, or making a purchase]. We are excited to have you join our community!
+
+Your [insert the action taken, such as account, subscription, or order] has been successfully processed. You can now [insert the benefits or next steps, such as access your account, start using our service, or receive your order].
+
+If you have any questions or concerns, please do not hesitate to contact us. We are always here to help.
+
+Thank you again for choosing [Brand Name]. We look forward to serving you.
+
+Best regards,
+[Your Name]
+[Brand Name] Team</string>
+    <string name="template5">Subject: [Brand Name] Newsletter - [Month Year]
+
+Dear [First Name],
+
+Welcome to the [Month Year] edition of the [Brand Name] newsletter! We hope this email finds you well and that you are enjoying our products/services.
+
+In this months newsletter, we have some exciting updates and content to share with you:
+
+[Insert the highlight or feature of the month, such as a new product launch, a promotion, or a blog post]
+[Insert a brief summary of the other content or topics, such as industry news, customer stories, or tips and tricks]
+We hope you find this information useful and inspiring. As always, we value your feedback and suggestions. If you have any ideas or topics you would like us to cover in future newsletters, please let us know.
+
+Thank you for being a part of the [Brand Name] community. We appreciate your support and loyalty.
+
+Best regards,
+[Your Name]
+[Brand Name] Team</string>
+    <string name="template6">Subject: [Brand Name] Feedback Request
+
+Dear [First Name],
+
+Thank you for choosing [Brand Name]. We hope you are enjoying our products/services and that they meet your expectations.
+
+We value your opinion and would appreciate your feedback on your recent experience with us. Your comments and suggestions will help us improve our brand and provide better service to you and our other customers.
+
+If you have a few minutes, please take this brief survey [insert the link to the survey or feedback form]. Your responses will be anonymous and confidential.
+
+As a token of our appreciation, we would like to offer you a [insert the incentive, such as a discount code or free gift] on your next purchase.
+
+Thank you again for your support and feedback. We look forward to hearing from you.
+
+Best regards,
+[Your Name]
+[Brand Name] Team!</string>
     <string name="template7">Septintaa!</string>
     <string-array name="email_templates">
         <item>Template 1</item>
         <item>Template 2</item>
-        <item>Template 3</item>
-        <item>Template 4</item>
-        <item>Template 5</item>
-        <item>Template 6</item>
+        <item>Welcome email</item>
+        <item>Confirmation email</item>
+        <item>Newsletter email</item>
+        <item>Feedback request email</item>
         <item>Template 7</item>
     </string-array>
 </resources>

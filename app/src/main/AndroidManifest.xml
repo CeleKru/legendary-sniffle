@@ -12,6 +12,12 @@
         android:theme="@style/Theme.Naujas"
         tools:targetApi="31">
         <activity
+            android:name=".ClientList"
+            android:exported="false" />
+        <activity
+            android:name=".AddClient"
+            android:exported="false" />
+        <activity
             android:name=".TemplateAdapter"
             android:exported="false" />
         <activity
