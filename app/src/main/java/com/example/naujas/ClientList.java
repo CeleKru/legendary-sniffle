@@ -30,6 +30,8 @@ public class ClientList extends AppCompatActivity {
         clientAdapter = new ClientAdapter(clientList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(clientAdapter);
+
+        getSupportActionBar().hide();
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

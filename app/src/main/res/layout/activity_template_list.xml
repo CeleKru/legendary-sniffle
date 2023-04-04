@@ -10,7 +10,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:textColor="@color/black">
 
         <!-- This is where the list of templates will be displayed -->
         <androidx.recyclerview.widget.RecyclerView

@@ -22,6 +22,8 @@ public class TemplateList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_template_list);
 
+        getSupportActionBar().hide();
+
         mRecyclerView = findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mAdapter = new TemplateAdapter(this, mTemplates);

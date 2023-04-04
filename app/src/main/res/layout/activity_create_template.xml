@@ -13,7 +13,7 @@
         android:text="Create New Email Template"
         android:textAlignment="center"
         android:textAllCaps="true"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <androidx.cardview.widget.CardView
@@ -25,7 +25,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
-        app:cardCornerRadius="20dp"
+        app:cardCornerRadius="30dp"
         app:cardElevation="8dp"
         app:cardUseCompatPadding="true">
 
@@ -34,7 +34,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Subject"
-            android:textSize="10sp"
+            android:textSize="15sp"
+            android:background="@drawable/custom_edittext"
             android:inputType="text"
             android:maxLines="1"
             android:minLines="1"
@@ -51,16 +52,17 @@
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="8dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="5dp"
         app:cardUseCompatPadding="true">
 
         <EditText
             android:id="@+id/bodyEditText"
+            android:background="@drawable/custom_edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Body"
-            android:textSize="10sp"
+            android:textSize="15sp"
             android:inputType="textMultiLine"
             android:minLines="5"
             android:padding="16dp" />
