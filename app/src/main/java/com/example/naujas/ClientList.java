@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 import android.os.Bundle;
+import android.view.WindowManager;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import com.google.firebase.database.ValueEventListener;
@@ -13,12 +14,22 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
-
-public class ClientList extends AppCompatActivity {
+import com.example.naujas.ClientAdapter.OnClientDeleteListener;
+public class ClientList extends AppCompatActivity implements ClientAdapter.OnClientDeleteListener {
     private RecyclerView recyclerView;
-    private ClientAdapter clientAdapter;
-    private List<Client> clientList;
     private DatabaseReference databaseReference;
+    private List<Client> clientList;
+    private ClientAdapter clientAdapter;
+
+    @Override
+    public void onClientDelete(int position) {
+        Client client = clientList.get(position);
+        clientList.remove(position);
+
+        clientAdapter.notifyItemRemoved(position);
+        clientAdapter = new ClientAdapter(clientList, this);
+        databaseReference.child(client.getId()).removeValue();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +38,10 @@ public class ClientList extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler_view);
         databaseReference = FirebaseDatabase.getInstance().getReference("clients");
         clientList = new ArrayList<>();
-        clientAdapter = new ClientAdapter(clientList);
+        clientAdapter = new ClientAdapter(clientList, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(clientAdapter);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         getSupportActionBar().hide();
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -50,3 +62,5 @@ public class ClientList extends AppCompatActivity {
         });
     }
 }
+
+

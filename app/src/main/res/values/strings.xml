@@ -1,5 +1,8 @@
 <resources>
-    <string name="app_name">Naujas</string>
+    <string name="app_name">MailMate</string>
+    <string name="select_client">Select Client</string>
+
+
     <string name="template1">Hello [name], thank you for your [order]!</string>
     <string name="template2">
         Dear [Recipient’s Name],
@@ -89,4 +92,6 @@ Best regards,
         <item>Feedback request email</item>
         <item>Template 7</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

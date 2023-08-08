@@ -4,6 +4,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 import android.os.Bundle;
+import android.view.WindowManager;
+
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,16 +23,14 @@ public class TemplateList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_template_list);
-
         getSupportActionBar().hide();
-
         mRecyclerView = findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mAdapter = new TemplateAdapter(this, mTemplates);
+        mAdapter = new TemplateAdapter(this, mTemplates, mTemplatesDatabaseReference);
         mRecyclerView.setAdapter(mAdapter);
-
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mTemplatesDatabaseReference = mFirebaseDatabase.getReference().child("templates");
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         mChildEventListener = new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {

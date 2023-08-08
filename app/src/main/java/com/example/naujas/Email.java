@@ -1,83 +1,113 @@
 package com.example.naujas;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
+import java.util.List;
+import android.widget.ArrayAdapter;
+import java.util.ArrayList;
+import androidx.annotation.NonNull;
+import android.util.Log;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 
 public class Email extends AppCompatActivity {
+    private static final String TAG = "EmailActivity";
     private EditText bodyEditText;
+    private EditText emailEditText;
     private Button sendButton;
     private Spinner templatesSpinner;
+    private List<Template> templates;
+    private EditText toEditText;
+    private Client selectedClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_email);
-
         getSupportActionBar().hide();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         templatesSpinner = findViewById(R.id.templatesSpinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.email_templates, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        templatesSpinner.setAdapter(adapter);
-
         bodyEditText = findViewById(R.id.bodyEditText);
-        templatesSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedTemplate = parent.getItemAtPosition(position).toString();
-                String message = "";
-                switch (selectedTemplate) {
-                    case "Template 1":
-                        message = getString(R.string.template1);
-                        break;
-                    case "Template 2":
-                        message = getString(R.string.template2);
-                        break;
-                    case "Welcome email":
-                        message = getString(R.string.template3);
-                        break;
-                    case "Confirmation email":
-                        message = getString(R.string.template4);
-                        break;
-                    case "Newsletter email":
-                        message = getString(R.string.template5);
-                        break;
-                    case "Feedback request email":
-                        message = getString(R.string.template6);
-                        break;
-                    case "Template 7":
-                        message = getString(R.string.template7);
-                        break;
-                }
-                bodyEditText.setText(message);
-            }
+        sendButton = findViewById(R.id.sendButton);
+        Spinner clientSpinner = findViewById(R.id.clientSpinner);
+        emailEditText = findViewById(R.id.toEditText);
 
+        templates = new ArrayList<>();
+        TemplateSpinnerAdapter templateAdapter = new TemplateSpinnerAdapter(Email.this, templates);
+        templatesSpinner.setAdapter(templateAdapter);
+        DatabaseReference templatesRef = FirebaseDatabase.getInstance().getReference("templates");
+        templatesRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                // do nothing
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot templateSnapshot : snapshot.getChildren()) {
+                    Template template = templateSnapshot.getValue(Template.class);
+                    templates.add(template);
+                }
+                templateAdapter.notifyDataSetChanged();
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w(TAG, "Error getting templates.", error.toException());
             }
         });
-
-        sendButton = findViewById(R.id.sendButton);
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sendEmail();
             }
         });
+        templatesSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Template selectedTemplate = (Template) parent.getItemAtPosition(position);
+                String message = selectedTemplate.getBody();
+                bodyEditText.setText(message);
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+        clientSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                selectedClient = (Client) parent.getItemAtPosition(position);
+                emailEditText.setText(selectedClient.getEmail());
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+        DatabaseReference clientsRef = FirebaseDatabase.getInstance().getReference("clients");
+        clientsRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                List<Client> clients = new ArrayList<>();
+                for (DataSnapshot clientSnapshot : snapshot.getChildren()) {
+                    Client client = clientSnapshot.getValue(Client.class);
+                    clients.add(client);
+                }
+                ArrayAdapter<Client> clientAdapter = new ArrayAdapter<>(Email.this, android.R.layout.simple_spinner_item, clients);
+                clientAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                clientSpinner.setAdapter(clientAdapter);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
     }
-
     private void sendEmail() {
-        String recipientList = "recipient@example.com";
+        String recipientList = selectedClient.getEmail();
         String[] recipients = recipientList.split(",");
 
         String subject = "Email Subject";
@@ -91,3 +121,7 @@ public class Email extends AppCompatActivity {
         startActivity(Intent.createChooser(emailIntent, "Choose an email client"));
     }
 }
+
+
+
+

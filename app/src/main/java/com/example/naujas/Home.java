@@ -8,9 +8,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.PopupMenu;
+import android.view.WindowManager;
+import android.widget.TextView;
+import org.json.JSONObject;
+import org.json.JSONException;
+import org.json.JSONArray;
+
+
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.io.IOException;
 public class Home extends AppCompatActivity {
     private Button moreButton;
     private Button createEmailButton;
@@ -18,18 +26,16 @@ public class Home extends AppCompatActivity {
     private Button templateListButton;
     private Button addClientButton;
     private Button clientListButton;
+    private Button newsButton;
     private FirebaseAuth FirebaseAuth;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-
         if (id == R.id.action_logout) {
             FirebaseAuth.getInstance().signOut();
             Intent intent = new Intent(this, Login.class);
@@ -38,25 +44,22 @@ public class Home extends AppCompatActivity {
             finish();
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setElevation(0);
-
-
         createEmailButton = findViewById(R.id.create_email_button);
         //moreButton = findViewById(R.id.more_button);
         createTemplateButton = findViewById(R.id.create_template_button);
         templateListButton = findViewById(R.id.template_list_button);
         addClientButton = findViewById(R.id.add_client_button);
         clientListButton = findViewById(R.id.client_list_button);
+        newsButton = findViewById(R.id.news_button);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         PopupMenu popupMenu = new PopupMenu(this, moreButton);
         popupMenu.getMenuInflater().inflate(R.menu.popup_menu, popupMenu.getMenu());
@@ -79,7 +82,6 @@ public class Home extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         createTemplateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,7 +89,6 @@ public class Home extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         templateListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,5 +110,13 @@ public class Home extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        newsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Home.this, Slidenews.class);
+                startActivity(intent);
+            }
+        });
     }
+
 }

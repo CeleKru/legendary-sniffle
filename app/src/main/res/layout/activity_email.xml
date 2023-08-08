@@ -6,77 +6,137 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/cloud">
-    <Spinner
-        android:id="@+id/templatesSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:textColor="@color/orange"
-        android:textSize="16sp"
-        android:spinnerMode="dropdown"
-        android:dropDownVerticalOffset="48dp"
-        android:dropDownHorizontalOffset="8dp"
-        android:animateOnClick="true"
-        app:layout_constraintTop_toBottomOf="@id/bodyEditText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
 
-    <EditText
-        android:id="@+id/toEditText"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/to_cardview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="To"
-        android:inputType="textEmailAddress"
-        android:textSize="20sp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="8dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="true"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:autofillHints="" />
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <EditText
-        android:id="@+id/subjectEditText"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <Spinner
+                android:id="@+id/clientSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginTop="16dp"
+                android:spinnerMode="dropdown"
+                android:dropDownWidth="match_parent"
+                android:textColor="@color/white"
+                android:hint="Client List"
+                android:textSize="18sp"
+                android:prompt="@string/select_client" />
+
+            <EditText
+                android:id="@+id/toEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="To"
+                android:textColor="@color/white"
+                android:inputType="textEmailAddress"
+                android:textSize="20sp"
+                android:padding="10dp"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/subject_cardview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Subject"
-        android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@id/toEditText"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="8dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintTop_toBottomOf="@id/to_cardview"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"/>
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <EditText
-        android:id="@+id/bodyEditText"
-        android:layout_width="387dp"
-        android:layout_height="304dp"
-        android:layout_marginStart="16dp"
+        <EditText
+            android:id="@+id/subjectEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Subject"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:padding="10dp"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/body_cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:gravity="top|start"
-        android:hint="Body"
-        android:inputType="textMultiLine"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@id/sendButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginBottom="24dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        app:cardUseCompatPadding="true"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/subjectEditText"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/sendButton"
+        app:layout_constraintTop_toBottomOf="@id/subject_cardview">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="301dp"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <Spinner
+                android:id="@+id/templatesSpinner"
+                android:layout_width="345dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:animateOnClick="true"
+                android:dropDownWidth="match_parent"
+                android:dropDownHorizontalOffset="5dp"
+                android:dropDownVerticalOffset="45dp"
+                android:spinnerMode="dropdown"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/bodyEditText"
+                android:layout_width="345dp"
+                android:layout_height="240dp"
+                android:hint="Body"
+                android:inputType="textMultiLine"
+                android:padding="5dp"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
     <Button
         android:id="@+id/sendButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="137dp"
+        android:layout_height="46dp"
+        android:layout_marginEnd="136dp"
+        android:layout_marginBottom="96dp"
         android:text="Send"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="16dp"/>
-
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

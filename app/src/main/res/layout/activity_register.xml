@@ -47,7 +47,7 @@
                 android:drawablePadding="8dp"
                 android:hint="username"
                 android:padding="8dp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textColorHighlight="@color/cardview_dark_background"
                 android:layout_marginTop="40dp"/>
 
@@ -60,7 +60,7 @@
                 android:drawablePadding="8dp"
                 android:hint="email"
                 android:padding="8dp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textColorHighlight="@color/cardview_dark_background"
                 android:layout_marginTop="40dp"/>
 
@@ -74,7 +74,7 @@
                 android:inputType="textPassword"
                 android:hint="password"
                 android:padding="8dp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textColorHighlight="@color/cardview_dark_background"
                 android:layout_marginTop="40dp"/>
 

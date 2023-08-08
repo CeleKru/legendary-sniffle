@@ -2,6 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/cloud">
@@ -21,9 +22,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/titleTextView"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="0dp"
         android:layout_marginBottom="8dp"
         app:cardCornerRadius="30dp"
         app:cardElevation="8dp"
@@ -33,6 +34,7 @@
             android:id="@+id/subjectEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:hint="Subject"
             android:textSize="15sp"
             android:background="@drawable/custom_edittext"
@@ -48,9 +50,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/subject_cardview"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="0dp"
         android:layout_marginBottom="8dp"
         app:cardCornerRadius="30dp"
         app:cardElevation="5dp"
@@ -61,8 +63,9 @@
             android:background="@drawable/custom_edittext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:hint="Body"
-            android:textSize="15sp"
+            android:textSize="20sp"
             android:inputType="textMultiLine"
             android:minLines="5"
             android:padding="16dp" />
@@ -74,11 +77,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/body_cardview"
-        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="45dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="Save"
-        android:textSize="15sp"/>
+        android:text="SAVE"
+        android:textSize="20sp"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintLeft_toLeftOf="@id/body_cardview"
+        app:layout_constraintTop_toBottomOf="@id/body_cardview" />
 
 </RelativeLayout>
 

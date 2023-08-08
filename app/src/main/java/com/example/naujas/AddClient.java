@@ -4,33 +4,27 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Button;
 import android.widget.Toast;
-import android.os.Bundle;
 import android.text.TextUtils;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 public class AddClient extends AppCompatActivity {
-
     private DatabaseReference databaseReference;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_client);
-
         getSupportActionBar().hide();
-
         databaseReference = FirebaseDatabase.getInstance().getReference();
-
         Button addButton = findViewById(R.id.add_client_button);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Get the user input for the client's name, email, and phone number
                 EditText nameEditText = findViewById(R.id.client_name_edittext);
                 String name = nameEditText.getText().toString();
 
@@ -40,12 +34,11 @@ public class AddClient extends AppCompatActivity {
                 EditText phoneEditText = findViewById(R.id.client_phone_edittext);
                 String phone = phoneEditText.getText().toString();
 
-                // Call the addClientToDatabase() method with the user input
+
                 addClientToDatabase(name, email, phone);
             }
         });
     }
-
     private void addClientToDatabase(String name, String email, String phone) {
         if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(phone)) {
             String id = databaseReference.child("clients").push().getKey();

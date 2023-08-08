@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -27,23 +28,20 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
         getSupportActionBar().hide();
-
         auth = FirebaseAuth.getInstance();
         registerUsername = findViewById(R.id.register_username);
         registerEmail = findViewById(R.id.register_email);
         registerPassword = findViewById(R.id.register_password);
         registerButton = findViewById(R.id.RegisterButton);
         loginRedirect = findViewById(R.id.loginRedirect);
-
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String user = registerUsername.getText().toString().trim();
                 String email = registerEmail.getText().toString().trim();
                 String pass = registerPassword.getText().toString().trim();
-                
                 if (email.isEmpty()){
                     registerEmail.setError("Email cannot be empty!");
                 }
@@ -70,6 +68,5 @@ public class Register extends AppCompatActivity {
                startActivity(new Intent(Register.this, Login.class));
             }
         });
-
     }
 }
